@@ -1,3 +1,10 @@
+#output will be
+#enter the elemesnts u want to change
+#akarsh(user input)
+#Enter Your head alphabet
+#b(userinput)
+#       blbsti
+
 output= []
 name = input("enter the elemesnts u want to change\n")
 key= input('Enter Your head alphabet\n')[0]
