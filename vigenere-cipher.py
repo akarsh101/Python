@@ -30,6 +30,7 @@ def vigenere_enc():
 
     for letter in input_string:
         if letter in alphabet:
+            
             position = alphabet.find(letter)
             key_character = expanded_key[key_position]
             key_character_position = alphabet.find(key_character)
