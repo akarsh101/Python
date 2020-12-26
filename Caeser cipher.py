@@ -4,6 +4,7 @@
 #Enter Your head alphabet
 #b(userinput)
 #       blbsti
+#this is a private code
 
 output= []
 name = input("enter the elemesnts u want to change\n")
