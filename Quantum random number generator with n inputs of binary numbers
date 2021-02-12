@@ -2,14 +2,7 @@
 the credits of the program goes to this website, and im thankful for this website helping me'''
 from projectq.ops import  H, Measure
 from projectq import MainEngine
-
-"""
-new qubit, Hadamard in superposition, measures the qubit to get a random 1 or 0. 
- 
-"""
-from projectq.ops import  H, Measure
-from projectq import MainEngine
-
+import binascii
 """
 new qubit, Hadamard in superposition, measures the qubit to get a random 1 or 0. 
  
@@ -25,7 +18,9 @@ def get(quantum):
 random = []
 
 # initialises a new quantum backend
-num=int(input("enter the no of bits you want to create, please enter digits over 12 so that you will get 4 digit numbers"))
+num=int(input())
+
+#int(input("enter the no of bits you want to create, please enter digits over 12 so that you will get 4 digit numbers"))
 # for loop to generate n random charecters in 1 and 0
 
 
@@ -49,12 +44,22 @@ for c in random:
 
 
 #printing the binary as a string
+
+#the bellow code consists of conversion of bits into ascii with 8bits assigned per ascii
 #print(string)
 
-#number refers to converting string into binary litrals
-number=(bin(int(string, 2)))
-print("your random binary bits:\t\t\t",number,"\n\n")
-#converting binary to numbers
-print("your random binary converted to decimal:\t",int(number,2))
-#if int(number,2)<=1000:
+n = 8
+binary_values = string.split()
+
+ascii_string = ""
+for i in range(0, len(string), n):
     
+    integer=int(string[i:i+n],2)
+    ascii_char=chr(integer)
+    ascii_string+=ascii_char
+print(ascii_string)
+
+
+#number refers to converting string into binary litrals
+
+#print(str(int(string,2)))
