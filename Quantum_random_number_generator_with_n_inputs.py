@@ -62,18 +62,3 @@ print(ascii_string)
 #number refers to converting string into binary litrals
 
 #print(str(int(string,2)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''https://dataespresso.com/en/2018/07/22/Tutorial-Generating-random-numbers-with-a-quantum-computer-Python/
-the credits of the program goes to this website, and im thankful for this website helping me'''
