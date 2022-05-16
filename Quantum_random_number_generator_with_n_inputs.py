@@ -1,4 +1,3 @@
-
 from projectq.ops import  H, Measure
 from projectq import MainEngine
 import binascii
@@ -17,7 +16,9 @@ def get(quantum):
 random = []
 
 # initialises a new quantum backend
-num=int(input())
+
+#Multiplied by 8 as bits make 1 ascii charecter
+num=int(input())*8
 
 #int(input("enter the no of bits you want to create, please enter digits over 12 so that you will get 4 digit numbers"))
 # for loop to generate n random charecters in 1 and 0
@@ -45,7 +46,7 @@ for c in random:
 #printing the binary as a string
 
 #the bellow code consists of conversion of bits into ascii with 8bits assigned per ascii
-#print(string)
+print(string)
 
 n = 8
 binary_values = string.split()
@@ -61,4 +62,4 @@ print(ascii_string)
 
 #number refers to converting string into binary litrals
 
-#print(str(int(string,2)))
+print(str(int(string,2)))
