@@ -1,0 +1,1 @@
+awk '{for(word=1;word<=NF;word++){print $word}}' word.txt | sort | uniq -c | sort -nr
