@@ -1,0 +1,45 @@
+#This programme is made to clean up data from a CSV file and sort it according to predetermined standards, such network traffic patterns. I've successfully used this code on a test dataset, and I think it can be modified for usage in the project's data collection and preparation phase.
+#In addition, I looked over the example case study from Ulm University's Student Union for Electrical Engineering that you linked to (https://github.com/vs-uulm/2017-SUEE-data-set). I'm sure that my knowledge of coding and analytical capabilities will be helpful when handling and examining comparable datasets. I have used the network traffic sample, with the help of wireshark I have exported the traffic into a spreadsheet in .csv format.
+
+import csv
+
+def sanitize_data(input_file, column_index):
+    # Open the input CSV file for reading
+    with open(input_file, 'r', newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        # Iterate through each row in the CSV file
+        for row in reader:
+            if len(row) > column_index:
+                cell_value = row[column_index]
+                # Check if the cell value contains a period before splitting
+                if '.' in cell_value:
+                    parts = cell_value.split(".")
+                    last_part = parts[-1]
+                    first_part = parts[0]
+                    # Convert the last part to an integer if it's numeric
+                    if last_part.isdigit() and first_part.isdigit():
+                        new_n = int(last_part)
+                        new_m = int(first_part)
+
+                        #finding the ips from Slowloris
+                        if new_n > 0 and new_n < 50 and new_m == 10:
+                            slowloris = row
+                            print("slowloris:",slowloris)
+
+                        #finding the ips from Slowhttptest
+                        elif new_n > 50 and new_n < 100 and new_m == 10:
+                            showhttptest = row
+                            print("showhttptest:",showhttptest)
+
+                        #finding the ips from slowloris_ng
+                        elif new_n > 100 and new_n < 150 and new_m == 10:
+                            slowloris_ng = row
+                            print("slowloris-ng:",slowloris_ng)
+                        else:
+                            print("normal network traffic:",row)
+                        
+if __name__ == "__main__":
+    #below is the input file location with the file name to test
+    input_file = "E://Downloads//sample1.csv"  
+    column_index = 2
+    sanitize_data(input_file, column_index)
